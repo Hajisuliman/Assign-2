@@ -1,8 +1,8 @@
-const express = require('express');
-const debug = require('debug')('portfolio:server');
-const http = require('http');
+let express = require('express');
+let debug = require('debug')('portfolio:server');
+let http = require('http');
 
-const app = express();
+let app = express();
 
 // Replace this with your actual application logic using the Express framework
 app.get('/', (req, res) => {
@@ -16,11 +16,11 @@ app.get('/', (req, res) => {
 // ...
 
 // Get port from environment and store in Express.
-const port = normalizePort(process.env.PORT || '3000');
+let port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 // Create HTTP server.
-const server = http.createServer(app);
+let server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
 server.listen(port);
@@ -29,7 +29,7 @@ server.on('listening', onListening);
 
 // Normalize a port into a number, string, or false.
 function normalizePort(val) {
-  const port = parseInt(val, 10);
+  let port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -50,7 +50,7 @@ function onError(error) {
     throw error;
   }
 
-  const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  let bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
 
   // Handle specific listen errors with friendly messages
   switch (error.code) {
@@ -69,7 +69,7 @@ function onError(error) {
 
 // Event listener for HTTP server "listening" event.
 function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  let addr = server.address();
+  let bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
