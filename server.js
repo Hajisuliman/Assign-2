@@ -3,9 +3,12 @@
  * Module dependencies.
  */
 
+let express = require('express');
 let app = require('./app');
 let debug = require('debug')('portfolio:server');
 let http = require('http');
+
+let app = express();
 
 /**
  * Get port from environment and store in Express.
